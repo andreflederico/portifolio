@@ -19,3 +19,17 @@ form.addEventListener("submit", function(event) {
         mensagemDiv.textContent = '';
     }, 4000);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const textarea = document.getElementById("mensagem");
+    const contador = document.getElementById("contador");
+
+    textarea.addEventListener("input", () => {
+    // Remove espaços extras e divide por espaços
+    const texto = textarea.value.trim();
+    const palavras = texto === "" ? 0 : texto.split(/\s+/).length;
+
+    // Atualiza o contador
+    contador.textContent = `${palavras} palavra${palavras !== 1 ? 's' : ''}`;
+    });
+});
